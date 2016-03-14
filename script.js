@@ -1,9 +1,21 @@
 $('.aboutBoxes').hide();
+$('#ContactForm').hide();
 
 $('li').hover(function() {
   $(this).toggleClass('pulse animated');
 });
 
+$('#contact').on('click', function(event) {
+  $('#ContactForm').show();
+  $('#logoLanding').hide();
+  $('#about').hide();
+  $('#about').hide();
+  $('#about').hide();
+});
+
+$('#home').on('click', function(event) {
+  window.open("index.html","_self")
+});
 function sizing() {
   $width = $(window).width();
   $height = $(window).height();
@@ -19,6 +31,8 @@ function sizing() {
   $('#about').css('height', $height-80);
   $('#logo').css('width', $width);
   $('#logo').css('height', $height);
+  $('#ContactForm').css('width', $width);
+  $('#ContactForm').css('height', $height-90);
 }
 sizing();
 
