@@ -52,54 +52,68 @@
   a{
     font-size: .9em;
   }
+  li{
+    font-size: .9em;
+  }
 
 }
 
 @media (max-width: 640px) {
-nav{
-  width: 100px;
-  height: 80px;
-  display: flex;
-  display: -webkit-flex;
-  display: -moz-flex;
-  flex-direction: row;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  justify-content: space-around;
-  -webkit-justify-content: space-around;
-  -moz-justify-content: space-around;
-  margin-right: 0;
+  nav{
+    width: 100px;
+    height: 80px;
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    margin-right: 0;
+  }
+  ul{
+    width: 100%;
+  }
+  li{
+    display: none;
+    margin: auto;
+  }
+  #navBurg{
+    display: inline-block;
+  }
+  #title{
+    font-size: 1em;
+    width: 80%;
+  }
+  #logoImg{
+    width: 80%;
+  }
+  #orTable{
+    padding: 0;
+    padding-left: 4%;
+    padding-bottom: 5%;
+  }
+  a{
+    font-size: .7em;
+  }
+  strong{
+    Font-size: 1.1em;
+  }
+  #message{
+    width: 25em;
+  }
+
 }
-ul{
-  width: 100%;
-}
-li{
-  display: none;
-  margin: auto;
-}
-#navBurg{
-  display: inline-block;
-}
-#title{
-  font-size: 1em;
-  width: 80%;
-}
-#logoImg{
-  width: 80%;
-}
-#orTable{
-  padding: 0;
-  padding-left: 4%;
-  padding-bottom: 5%;
-}
-a{
-  font-size: .7em;
-}
-strong{
-  Font-size: 1.1em;
-}
-#message{
-  width: 25em;
-}
+
+@media (max-width: 500px) {
+  li{
+    font-size: .6em;
+  }
+  #form{
+    width: 95%;
+    height: 95%;
+  }
 
 }
