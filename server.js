@@ -22,6 +22,12 @@ app.get('*', function(request, response) {
 app.get('/contactus/', function(req, res) {
   res.sendFile('index.html', {root:__dirname + '/'});
 });
+app.get('/aboutus/', function(req, res) {
+  res.sendFile('index.html', {root:__dirname + '/'});
+});
+app.get('/ordinances/', function(req, res) {
+  res.sendFile('index.html', {root:__dirname + '/'});
+});
 
 app.post('/contact', function (req, res) {
   console.log(req.body.info);

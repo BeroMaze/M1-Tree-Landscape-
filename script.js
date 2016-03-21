@@ -10,8 +10,6 @@ $('#contact').on('click', function(event) {
   $('#ContactForm').show();
   $('#logoLanding').hide();
   $('#about').hide();
-  $('#about').hide();
-  $('#about').hide();
   $('#ordinancesTable').hide();
   history.pushState("contactus ","contactus","contactus");
 });
@@ -21,9 +19,20 @@ $('#ordinance').on('click', function(event) {
   $('#ContactForm').hide();
   $('#logoLanding').hide();
   $('#about').hide();
-  $('#about').hide();
-  $('#about').hide();
   history.pushState("ordinances","ordinances","ordinances");
+});
+
+
+$('#aboutUs').on('click', function(event) {
+  $('#about').show();
+  $('#crew').addClass('bounceInRight animated');
+  $('#weDo').addClass('bounceInLeft animated');
+  $('#howIs').addClass('bounceInRight animated');
+  $('.aboutBoxes').show();
+  $('#ordinancesTable').hide();
+  $('#ContactForm').hide();
+  $('#logoLanding').hide();
+  history.pushState("aboutus","aboutus","aboutus");
 });
 
 $('#home').on('click', function(event) {
@@ -85,6 +94,9 @@ function sizing() {
     $('li').css('display', 'none');
     $('nav').css('width', '100px');
   }
+  if ($width < 500) {
+    $("#title").html('M1<br>TREE AND LANDSCAPE LLC');
+  }
 }
 sizing();
 
@@ -93,11 +105,22 @@ $(window).resize(function(event) {
 });
 
 $('main').scroll(function() {
-   if($('main').scrollTop() == $(window).height()) {
+   if($('main').scrollTop() === $(window).height()) {
      $('#crew').addClass('bounceInRight animated');
      $('#weDo').addClass('bounceInLeft animated');
      $('#howIs').addClass('bounceInRight animated');
      $('.aboutBoxes').show();
+     history.pushState("aboutUs","aboutUs","aboutUs");
+   }
+});
+$('main').scroll(function() {
+   if($('main').scrollTop() === 0){
+     $('#crew').removeClass('bounceInRight animated');
+     $('#weDo').removeClass('bounceInLeft animated');
+     $('#howIs').removeClass('bounceInRight animated');
+     $('.aboutBoxes').hide();
+     history.pushState("home","home","home");
+     console.log('to top');
    }
 });
 
@@ -135,8 +158,6 @@ if(window.location.href.indexOf('contactus') > -1){
   $('#ContactForm').show();
   $('#logoLanding').hide();
   $('#about').hide();
-  $('#about').hide();
-  $('#about').hide();
   $('#ordinancesTable').hide();
 }
 
@@ -145,6 +166,14 @@ if(window.location.href.indexOf('ordinances') > -1){
   $('#ContactForm').hide();
   $('#logoLanding').hide();
   $('#about').hide();
-  $('#about').hide();
-  $('#about').hide();
+}
+if(window.location.href.indexOf('aboutus') > -1){
+  $('#about').show();
+  $('#crew').addClass('bounceInRight animated');
+  $('#weDo').addClass('bounceInLeft animated');
+  $('#howIs').addClass('bounceInRight animated');
+  $('.aboutBoxes').show();
+  $('#ordinancesTable').hide();
+  $('#ContactForm').hide();
+  $('#logoLanding').hide();
 }
