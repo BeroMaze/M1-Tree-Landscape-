@@ -2,8 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Alfa+Slab+One|Passion+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./main.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/media.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="./animated.css" media="screen" title="no title" charset="utf-8">
     <title>M1 Tree & Landscape</title>
   </head>
@@ -17,14 +19,12 @@
           <li id="contact">Contact Us</li>
           <li id="ordinance">City Ordinances</li>
         </ul>
+        <img src="/images/Chainsaw.png" id="navBurg" alt="" />
       </nav>
     </header>
     <main>
       <section id="logoLanding">
         <img id="logoImg" src="./images/logo.png" alt="" />
-          <!-- <div id="logo">
-
-          </div> -->
       </section>
       <section id="about">
         <div id="howIs" class="aboutBoxes">
@@ -40,23 +40,143 @@
       <section id="ContactForm">
         <div id="form">
           <h3 id="formTitle">Let use know if you have any question or just want to get ahold of use.</h3>
-          <form>
+          <form action='/contact', name='contactus', id='contactus', method='post'>
             First Name:<br>
-            <input type="text" name="firstname"><br>
+            <input type="text" name="firstName" id="firstName"><br>
             Last Name:<br>
-            <input type="text" name="lastname"><br>
+            <input type="text" name="lastName" id="lastName"><br>
+            Email:<br>
+            <input type="text" name="email" id="email"><br>
             Number:<br>
-            <input type='tel' name="number" maxlength="10"><br>
-            Let Us Know:<br>
-            <textarea rows="20" cols="50"></textarea><br>
-            <button type="button" name="button">Submit</button>
+            <input type='tel' name="number" id="number" maxlength="10"><br>
+            Message:<br>
+            <textarea name='message' id='message' rows="15" cols="50"></textarea><br>
+            <button type="submit" name="button" value='Send' id='submit'>Submit</button>
           </form>
+        </div>
+      </section>
+      <section id="ordinancesTable">
+        <div id="tableView">
+          <h3>City Tree Permit and Removal Ordinances</h3>
+          <div id="tableScroll">
+            <table id="orTable" width="616" border="0" cellspacing="5" cellpadding="3">
+              <tbody>
+                <tr>
+                <td><a href="http://www.arlingtonwa.gov/" target="_blank"><strong>ARLINGTON</strong></a><br>
+                <a href="http://www.arlingtonwa.gov/index.aspx?page=186" target="_blank">Permit Assistance</a><br></td>
+                <td><a href="http://www.ci.mukilteo.wa.us/" target="_blank"><strong>MUKILTEO</strong></a><br><br></td>
+                <td><a href="http://www.cityofgigharbor.net/" target="_blank"><strong>GIG HARBOR</strong></a> <br>
+                <a href="http://www.cityofgigharbor.net/files/library/524b79c196444eb5.pdf" target="_blank"> More Info</a><br></td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.auburnwa.gov/home.htm" target="_blank"><strong>AUBURN</strong></a>
+                  <br>
+                  <a href="http://www.cityofauburn-ga.org/DocumentCenter/Home/View/599" target="_blank">Permit Assistance</a><br>
+                  <a href="http://www.auburn.ca.gov/services/Permits/Docs/CommDev/TreePermit_Application_Info050105.pdf" target="_blank"> More Info</a></td>
+                  <td><a href="http://www.ci.issaquah.wa.us/FAQ.aspx?QID=219" target="_blank"><strong>ISSAQUAH</strong></a> <br>
+                  <a href="http://www.issaquahwa.gov/index.aspx?NID=1071" target="_blank"> More Info</a><br></td>
+                  <td><a href="http://olympiawa.gov/" target="_blank"><strong>OLYMPIA </strong></a><br>
+                  <a href="http://olympiawa.gov/~/~/media/Files/CPD/Urban%20Forestry/Forms/TreeRemovalPermitApplication2012.pdf" target="_blank">Permit Assistance</a></td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.bainbridgewa.gov/" target="_blank"><strong>BAINBRIDGE</strong></a><br>
+                    <a href="http://www.bainbridgewa.gov/DocumentCenter/View/4330" target="_blank">Tree Ordinance</a> <br>
+                  <a href="https://ci-bainbridgeisland-wa.smartgovcommunity.com/portal/Public/Home" target="_blank">Permit Assistance</a></td>
+                  <td><a href="http://www.cityofkenmore.com/" target="_blank"><strong>KENMORE</strong></a> <br>
+                  <a href="http://www.codepublishing.com/wa/Kenmore/html/Kenmore18/Kenmore1857.html" target="_blank"> More Info</a><br></td>
+                  <td><a href="http://www.cityofportorchard.us/index.php" target="_blank"><strong>PORT ORCHARD</strong></a><br>
+                  <a href="http://www.cityofportorchard.us/docs/planning/planning_pub/title_18.pdf" target="_blank">More Info</a><br></td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.ci.bellevue.wa.us/standards-guidelines.htm" target="_blank"><strong>BELLEVUE </strong></a> <br>
+                  <a href="http://www.ci.bellevue.wa.us/pdf/Development%20Services/L-8_TreeRemove_SingFam.pdf" target="_blank"> More Info</a><br></td>
+                  <td><a href="http://www.kirklandwa.gov/" target="_blank"><strong>KIRKLAND</strong></a> <br>
+                  <a href="http://www.kirklandwa.gov/Assets/Planning/Planning+PDFs/PublicTreeRemovalPermitApp.pdf" target="_blank"> More Info</a><br></td>
+                  <td><a href="http://www.codepublishing.com/wa/poulsbo/html/Poulsbo16/Poulsbo1624.html" target="_blank"><strong>POULSBO</strong></a><br><br></td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.codepublishing.com/wa/bothell/ " target="_blank"><strong>BOTHELL</strong></a><br>
+                  <a href="http://www.ci.bothell.wa.us/CityServices/PlanningAndDevelopment/BuildingPermitsInspections.ashx?p=1281" target="_blank"> Permit Assistance</a><br></td>
+                  <td><a href="http://www.ci.lacey.wa.us/city-government/city-departments/community-development/planning-zoning/current-planning/residential-tree-removal-" target="_blank"><strong>LACEY</strong></a> <br>
+                  <a href="http://www.ci.lacey.wa.us/Portals/0/docs/community_development/planning_and_zoning/planning%20forms/planning%20secure%20pdf/LCE-2_class_IV_forest_practice_app_land_clearing.pdf" target="_blank"> More Info</a><br></td>
+                  <td><a href="https://secure.cityofpuyallup.org/" target="_blank"><strong>PUYALLUP</strong></a> <br>
+                  <a href="http://www.cityofpuyallup.org/services/development-services/permit-support-services/" target="_blank"> More Info</a><br></td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.ci.bremerton.wa.us/" target="_blank"><strong>BREMERTON</strong></a> <br>
+                  <a href="http://www.bremertonwa.gov/307/Online-Permitting-Inspection" target="_blank"> Permit Assistance</a><br>
+                  <a href="http://www.codepublishing.com/wa/bremerton/html/Bremerton13/Bremerton1310.html" target="_blank"> More Info</a></td>
+                  <td><a href="http://www.cityoflfp.com/FAQ.aspx?FID=49&amp;NID=163" target="_blank"><strong>LAKE FOREST PARK</strong></a> <br>
+                  <a href="http://www.cityoflfp.com/DocumentCenter/Home/View/221" target="_blank"> More Info</a><br></td>
+                  <td><a href="http://www.redmond.gov/" target="_blank"><strong>REDMOND</strong></a> <br>
+                  <a href="http://www.redmond.gov/Residents/CodeEnforcement/TreeCutting/" target="_blank"> More Info</a><br></td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.ci.brier.wa.us/" target="_blank"><strong>BRIER</strong></a> <br>
+                  <a href="http://www.ci.brier.wa.us/Brier_Forms/building/treepermit.pdf" target="_blank"> More Info</a><br></td>
+                  <td><a href="http://www.codepublishing.com/WA/LakeStevens/" target="_blank"><strong>LAKE STEVENS</strong></a><br><br></td>
+                  <td><a href="http://www.codepublishing.com/wa/renton/" target="_blank"><strong>RENTON</strong></a> <br>
+                  <a href="http://rentonwa.gov/business/default.aspx?id=724" target="_blank"> More Info</a><br></td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.covingtonwa.gov/city_departments/communitydevelopment/permitservices/treeordinance.html" target="_blank"><strong>COVINGTON</strong></a> <br>
+                  <a href="http://www.covingtonwa.gov/covington/Minor_Tree_Removal_Application_06_08.pdf" target="_blank"> More Info</a><br></td>
+                  <td><a href="https://www.cityoflakewood.us/" target="_blank"><strong>LAKEWOOD</strong></a> <br>
+                  <a href="https://www.cityoflakewood.us/government/departments/planning/current-planning/tree-removal-guidelines-2012-mlk-week-storm" target="_blank"> Removal Guidelines</a><br></td>
+                  <td><a href="http://www.ci.sammamish.wa.us/departments/communitydevelopment/DCDFaq.aspx" target="_blank"><strong>SAMMAMISH </strong></a> <br>
+                  <a href="http://www.ci.sammamish.wa.us/files/document/10413.pdf" target="_blank"> More Info</a><br></td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.clydehill.org/" target="_blank"><strong>CLYDE HILL</strong></a><br><br></td>
+                  <td><a href="http://www.ci.lynnwood.wa.us/" target="_blank"><strong>LYNNWOOD </strong></a> <br>
+                  <a href="http://www.ci.lynnwood.wa.us/AssetFactory.aspx?did=280" target="_blank"> Permit Assistance</a><br>
+                  <a href="http://www.codepublishing.com/WA/Lynnwood/html/Lynnwood17/Lynnwood1715.html" target="_blank"> More Info</a> <br>
+                  </td>
+                  <td><a href="http://www.seattle.gov/DPD/permits/permittypes/treevegetationremoval/default.htm" target="_blank"><strong>SEATTLE</strong></a> <br>
+                  <a href="http://www.seattle.gov/DPD/Publications/CAM/cam242.pdf" target="_blank"> More Info</a><br></td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.duvallwa.gov/" target="_blank"><strong>DUVALL</strong></a> <br>
+                  <a href="http://www.duvallwa.gov/documentcenter/view/234" target="_blank"> Permit Assistance</a><br></td>
+                  <td><a href="https://medina.civicweb.net/Documents/DocumentList.aspx?ID=4522" target="_blank"><strong>MEDINA</strong></a><br><br></td>
+                  <td><a href="http://www.cityofshoreline.com/" target="_blank"><strong>SHORELINE</strong></a> <br>
+                  <a href="http://www.shorelinewa.gov/government/departments/planning-community-development/permits-and-development-information" target="_blank"> Permit Assistance</a><br>
+                  <a href="http://shorelinewa.gov/home/showdocument?id=12180" target="_blank"> More Info</a></td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.edmondswa.gov/" target="_blank"><strong>EDMONDS</strong></a> <br>
+                  <a href="http://www.edmondswa.gov/services/permits-development/handouts-forms.html" target="_blank"> Permit Assistance</a><br>
+                  <a href="http://www.edmondswa.gov/images/COE/Services/Permits_and_Development/Forms_and_Handouts/P46_-_Tree_and_Vegetation_Protection_and_Removal.pdf" target="_blank"> Tree and Vegetation <br>Protection and Removal</a><br>
+                  <a href="http://www.edmondswa.gov/services/sustainability/environment/environmental-regulations.html" target="_blank"> More Info</a></td>
+                  <td><a href="http://www.mercergov.org/Page.asp?NavID=2636" target="_blank"><strong>MERCER ISLAND</strong></a> <br>
+                  <a href="http://www.mercergov.org/files/PERMITtree-fillin.pdf" target="_blank"> More Info</a><br><br><br></td>
+                  <td><a href="http://www.cityoftacoma.org/cms/One.aspx?portalId=169&amp;pageId=33054" target="_blank"><strong>TACOMA</strong></a><br><br><br><br></td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.ci.everett.wa.us/default.aspx?ID=1757" target="_blank"><strong>EVERETT</strong></a><br><br></td>
+                  <td><a href="http://cityofmillcreek.com/" target="_blank"><strong>MILL CREEK</strong></a> <br>
+                  <a href="http://cityofmillcreek.com/index.aspx?NID=383" target="_blank"> Permit Assistance</a><br></td>
+                  <td><a href="http://www.cityofup.com/Contact.aspx" target="_blank"><strong>UNIVERSITY PLACE</strong></a></td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.cityoffederalway.com/index.aspx?NID=481" target="_blank"><strong>FEDERAL WAY</strong></a> <br>
+                  <a href="http://www.cityoffederalway.com/DocumentCenter/Home/View/928" target="_blank"> More Info</a><br></td>
+                  <td><a href="http://www.monroewa.gov/" target="_blank"><strong>MONROE</strong></a> <br>
+                  <a href="http://www.codepublishing.com/WA/Monroe/" target="_blank"> More Info</a><br></td>
+                  <td><a href="http://www.ci.woodinville.wa.us/" target="_blank"><strong>WOODINVILLE</strong></a> <br>
+                  <a href="http://www.ci.woodinville.wa.us/Work/PermitForms.asp" target="_blank"> Permit Assistance</a><br>
+                  <a href="http://www.ci.woodinville.wa.us/news/NewsReleasesDetail.asp?RecordKey=1422" target="_blank"> More Info</a></td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.kitsapgov.com/" target="_blank"><strong>Kitsap County</strong></a> <br><br></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
-    <script type="text/javascript" src='./script.js'>
-
-    </script>
+    <script type="text/javascript" src='./script.js'></script>
   </body>
 </html>
