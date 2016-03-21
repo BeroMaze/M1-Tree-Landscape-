@@ -1,0 +1,25 @@
+{
+  "name": "m1-tree-and-landscape",
+  "version": "1.0.0",
+  "description": "server for m1 website",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "nodemailer": "^0.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeroMaze/M1-Tree-and-Landscape.git"
+  },
+  "author": "Corey Berning",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BeroMaze/M1-Tree-and-Landscape/issues"
+  },
+  "homepage": "https://github.com/BeroMaze/M1-Tree-and-Landscape#readme"
+}
