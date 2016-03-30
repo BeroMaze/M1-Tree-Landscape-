@@ -1,6 +1,7 @@
 $('.aboutBoxes').hide();
 $('#ContactForm').hide();
 $('#ordinancesTable').hide();
+$('#quoteForm').hide();
 
 $('li').hover(function() {
   $(this).toggleClass('pulse animated');
@@ -11,7 +12,17 @@ $('#contact').on('click', function(event) {
   $('#logoLanding').hide();
   $('#about').hide();
   $('#ordinancesTable').hide();
+  $('#quoteForm').hide();
   history.pushState("contactus ","contactus","contactus");
+});
+
+$('#quote').on('click', function(event) {
+  $('#quoteForm').show();
+  $('#ContactForm').hide();
+  $('#logoLanding').hide();
+  $('#about').hide();
+  $('#ordinancesTable').hide();
+  history.pushState("quoteit","quoteit","quoteit");
 });
 
 $('#ordinance').on('click', function(event) {
@@ -19,6 +30,7 @@ $('#ordinance').on('click', function(event) {
   $('#ContactForm').hide();
   $('#logoLanding').hide();
   $('#about').hide();
+  $('#quoteForm').hide();
   history.pushState("ordinances","ordinances","ordinances");
 });
 
@@ -32,6 +44,7 @@ $('#aboutUs').on('click', function(event) {
   $('#ordinancesTable').hide();
   $('#ContactForm').hide();
   $('#logoLanding').hide();
+  $('#quoteForm').hide();
   history.pushState("aboutus","aboutus","aboutus");
 });
 
@@ -63,6 +76,53 @@ $('#submit').on('click', function(event) {
       $('#formTitle').html(data.message);
 
     }
+
+  });
+});
+
+var imageUploaded;
+var filname;
+
+$('input[type="file"]').change(function(){
+  var f = this.files[0];
+  var name = f.name;
+  imageUploaded = $(this)[0].value;
+  filename = imageUploaded.replace(/^.*\\/, "");
+  console.log(f);
+  console.log(name);
+  console.log(filename);
+});
+
+$('#submitQ').on('click', function(event) {
+  event.preventDefault();
+  var form = $('#quoteF :input').serializeArray();
+  var object = {
+    firstName: form[0].value,
+    lastName: form[1].value,
+    email: form[2].value,
+    number: form[3].value,
+    streetAdress: form[4].value,
+    cityState: form[5].value,
+    zipCode: form[6].value,
+    needed: $('#selestQ').val(),
+    pic: filename,
+    message: form[7].value
+
+  };
+  console.log(object);
+  $.post('/quote', {info: object}, function(data) {
+  }).done(function(data) {
+    // if (data.flag === true) {
+    //   $('#form').empty();
+    //   $('#form').append("<h1 class='formData'>"+ data.message +"</h1>");
+    //   $('#form').append('<img class="dataImg" src="/images/dataImg.jpg">');
+    //   $('#form').addClass('dataToCenter');
+    // }
+    // else {
+    //   alert('working');
+    //   $('#formTitle').html(data.message);
+    //
+    // }
 
   });
 });
@@ -154,11 +214,12 @@ $('nav').hover(function() {
   }
 });
 
-if(window.location.href.indexOf('contactus') > -1){
+if((window.location.href.indexOf('contactus') > -1)||(window.location.href.indexOf('contactUs') > -1)){
   $('#ContactForm').show();
   $('#logoLanding').hide();
   $('#about').hide();
   $('#ordinancesTable').hide();
+  $('#quoteForm').hide();
 }
 
 if(window.location.href.indexOf('ordinances') > -1){
@@ -166,9 +227,23 @@ if(window.location.href.indexOf('ordinances') > -1){
   $('#ContactForm').hide();
   $('#logoLanding').hide();
   $('#about').hide();
+  $('#quoteForm').hide();
 }
-if(window.location.href.indexOf('aboutus') > -1){
+if((window.location.href.indexOf('aboutus') > -1) || (window.location.href.indexOf('aboutUs') > -1)){
   $('#about').show();
+  $('#crew').addClass('bounceInRight animated');
+  $('#weDo').addClass('bounceInLeft animated');
+  $('#howIs').addClass('bounceInRight animated');
+  $('.aboutBoxes').show();
+  $('#ordinancesTable').hide();
+  $('#ContactForm').hide();
+  $('#logoLanding').hide();
+  $('#quoteForm').hide();
+}
+
+if((window.location.href.indexOf('quoteit') > -1) || (window.location.href.indexOf('quoteit') > -1)){
+  $('#quoteForm').show();
+  $('#about').hide();
   $('#crew').addClass('bounceInRight animated');
   $('#weDo').addClass('bounceInLeft animated');
   $('#howIs').addClass('bounceInRight animated');

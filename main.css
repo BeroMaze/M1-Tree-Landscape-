@@ -162,6 +162,33 @@ li{
   background-color: rgba(255, 255, 255, 0.21);
   padding-top: 90px;
 }
+#quoteF{
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+}
+#quoteForm{
+  color: white;
+  background-color: rgba(255, 255, 255, 0.21);
+  padding-top: 90px;
+
+}
+#formQ{
+  width: 60%;
+  height: 85%;
+  border: solid;
+  background-color: rgba(0, 0, 0, 0.74);
+  padding-left: 2%;
+  padding-bottom: 2%;
+  margin: auto;
+  overflow-y: auto;
+}
 
 #required{
   font-size: .5em;
