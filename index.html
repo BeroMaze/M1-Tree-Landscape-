@@ -57,6 +57,42 @@
           </form>
         </div>
       </section>
+      <section id="quoteForm">
+        <div id="formQ">
+          <h3 id="quoteTitle">Let use know if you have any question or just want to get ahold of use.</h3>
+          <form action='/quote', name='quote', id='quoteF', method='post'>
+            <div id="leftForm">
+              First Name: *<br>
+              <input type="text" name="firstNameQ" id="firstNameQ" required><br>
+              Last Name: *<br>
+              <input type="text" name="lastNameQ" id="lastNameQ" required><br>
+              Email: *<br>
+              <input type="text" name="emailQ" id="emailQ" required><br>
+              Number: *<br>
+              <input type='tel' name="numberQ" id="numberQ" maxlength="10" required><br>
+              Street Address: *<br>
+              <input type="text" name="streetAdressQ" id="streetAddressQ" required><br>
+              City and State: *<br>
+              <input type="text" name="cityStateQ" id="CityStateQ" required><br>
+              Zip Code: *<br>
+              <input type="text" name="zipCodeQ" id="zipCodeQ" required><br>
+            </div>
+            <div id="rightForm">
+              <select id="selestQ">
+                <option name="treeRemoval" value="treeRemoval">Tree Removal</option>
+                <option name="treePruning" value="treePruning">Tree Pruning</option>
+                <option name="other" value="other"> Other</option>
+              </select><br><br>
+              <input type="file" name="picQ" id="picQ" class="upload" accept="image/*"><br><br>
+              <span class="upload-path"></span>
+              Message: *<br>
+              <textarea name='messageQ' id='messageQ' rows="15" cols="50" required></textarea><br>
+              <button type="submit" name="button" value='Send' id='submitQ'>Submit</button>
+              <p id="required">* required</p>
+            </div>
+          </form>
+        </div>
+      </section>
       <section id="ordinancesTable">
         <div id="tableView">
           <h3>City Tree Permit and Removal Ordinances</h3>
