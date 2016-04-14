@@ -2,6 +2,7 @@ $('.aboutBoxes').hide();
 $('#ContactForm').hide();
 $('#ordinancesTable').hide();
 $('#quoteForm').hide();
+var imageUploaded;
 
 $('li').hover(function() {
   $(this).toggleClass('pulse animated');
@@ -55,6 +56,7 @@ $('#home').on('click', function(event) {
 $('#submit').on('click', function(event) {
   event.preventDefault();
   var form = $('#contactus').serializeArray();
+  console.log(form);
   var object = {
     firstName: form[0].value,
     lastName: form[1].value,
@@ -80,22 +82,24 @@ $('#submit').on('click', function(event) {
   });
 });
 
-var imageUploaded;
-var filname;
-
-$('input[type="file"]').change(function(){
-  var f = this.files[0];
-  var name = f.name;
-  imageUploaded = $(this)[0].value;
-  filename = imageUploaded.replace(/^.*\\/, "");
-  console.log(f);
-  console.log(name);
-  console.log(filename);
+$(":file").change(function () {
+    if (this.files && this.files[0]) {
+      var reader = new FileReader();
+      reader.onload = imageIsLoaded;
+      reader.readAsDataURL(this.files[0]);
+    }
 });
+function imageIsLoaded(e) {
+    imageUploaded = e.target.result;
+    // console.log(imageUploaded);
+    $('#thumb').attr('src', e.target.result);
+    // console.log(e);
+}
+
 
 $('#submitQ').on('click', function(event) {
   event.preventDefault();
-  var form = $('#quoteF :input').serializeArray();
+  var form = $('#quoteF').serializeArray();
   var object = {
     firstName: form[0].value,
     lastName: form[1].value,
@@ -105,7 +109,7 @@ $('#submitQ').on('click', function(event) {
     cityState: form[5].value,
     zipCode: form[6].value,
     needed: $('#selestQ').val(),
-    pic: filename,
+    pic: imageUploaded,
     message: form[7].value
 
   };

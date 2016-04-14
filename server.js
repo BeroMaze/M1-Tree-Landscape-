@@ -14,6 +14,7 @@ app.use(function(req, res, next) {
 app.use(express.static('./'));
 app.use(bodyParser());
 
+
 app.get('*', function(request, response) {
   console.log('New request:', request.url);
   response.sendFile('index.html', { root: '.' });
@@ -44,7 +45,7 @@ app.post('/contact', function (req, res) {
   //Mail options
   mailOpts = {
       from: form.firstName + ' ' +  form.lastName + '; '+ form.email + '', //grab form data from the request body object
-      to: 'berning.corey@gmail.com',
+      to: 'tannerm1tree@outlook.com',
       subject: 'M1 Contact Form',
       html:form.message + '<br><br>' + form.firstName + ' ' +  form.lastName + '<br>' + form.number  + '<br>' + form.email
   };
@@ -82,13 +83,15 @@ app.post('/quote', function (req, res) {
           pass: "treeandlandscape"
       }
   });
+
   //Mail options
   mailOpts = {
       from: form.firstName + ' ' +  form.lastName + '; '+ form.email + '', //grab form data from the request body object
-      to: 'berning.corey@gmail.com',
-      subject: 'M1 Contact Form',
-      html: form.message + '<br><br>' +form.needed + '<br><br>' + form.firstName + ' ' +  form.lastName + '<br>' + form.number  + '<br>' + form.email + '<br>' + form.streetAdress + '<br>' + form.cityState +' '+ form.zipCode + '<br><br>' + form.pic
+      to: 'berning.corey@gmail.com',//tannerm1tree@outlook.com
+      subject: 'M1 Quote Form',
+      html: form.message + '<br><br>' +form.needed + '<br><br>' + form.firstName + ' ' +  form.lastName + '<br>' + form.number  + '<br>' + form.email + '<br>' + form.streetAdress + '<br>' + form.cityState +' '+ form.zipCode + '<img src="'+ form.pic+'">'
   };
+
   smtpTrans.sendMail(mailOpts, function (error, response) {
       //Email not sent
       if (error) {

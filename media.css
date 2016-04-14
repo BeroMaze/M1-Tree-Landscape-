@@ -104,6 +104,16 @@
   #message{
     width: 25em;
   }
+  #messageQ{
+    width: 250px;
+  }
+  #formQ{
+    min-width: 440px;
+  }
+  #rightForm{
+    margin-right: 0;
+    margin-left: 50px
+  }
 
 }
 
@@ -114,6 +124,20 @@
   #form{
     width: 95%;
     height: 95%;
+  }
+  #quoteF{
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+  }
+  #formQ{
+    height: 75%;
+    width: 95%;
+    min-width: 95%;
+  }
+  #rightForm{
+    margin-right: 0;
+    margin-left: 0;
   }
 
 }
