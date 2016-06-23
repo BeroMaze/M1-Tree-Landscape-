@@ -6,7 +6,10 @@
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
-    "nodemailer": "^0.7.1"
+    "express-json": "^1.0.0",
+    "nodemailer": "^0.7.1",
+    "nodemailer-plugin-inline-base64": "^1.0.1",
+    "raw-body": "^2.1.6"
   },
   "devDependencies": {},
   "scripts": {

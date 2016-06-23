@@ -15,7 +15,7 @@
       <nav>
         <ul>
           <li id="home">Home</li>
-          <li id="aboutUs">About</li>
+          <!-- <li id="aboutUs">About</li> -->
           <li id="quote">Get a Quote</li>
           <li id="contact">Contact Us</li>
           <li id="ordinance">City Ordinances</li>
@@ -25,9 +25,9 @@
     </header>
     <main>
       <section id="logoLanding">
-        <img id="logoImg" src="./images/logo.png" alt="" />
+        <!-- <img id="logoImg" src="./images/logo.png" alt="" /> -->
       </section>
-      <section id="about">
+      <!-- <section id="about">
         <div id="howIs" class="aboutBoxes">
           <h2 class="titles">Who is M1 Tree and Landscape?</h2>
         </div>
@@ -37,7 +37,7 @@
         <div id="crew" class="aboutBoxes">
           <h2 class="titles">Get To Know the Crew.</h2>
         </div>
-      </section>
+      </section> -->
       <section id="ContactForm">
         <div id="form">
           <h3 id="formTitle">Let use know if you have any question or just want to get ahold of use.</h3>
@@ -59,7 +59,7 @@
       </section>
       <section id="quoteForm">
         <div id="formQ">
-          <h3 id="quoteTitle">Let use know if you have any question or just want to get ahold of use.</h3>
+          <h3 id="quoteTitle">Let use know what work needs to get done.</h3>
           <form action='/quote', name='quote', id='quoteF', method='post'>
             <div id="leftForm">
               First Name: *<br>
@@ -83,8 +83,17 @@
                 <option name="treePruning" value="treePruning">Tree Pruning</option>
                 <option name="other" value="other"> Other</option>
               </select><br><br>
-              <input type="file" name="picQ" id="picQ" class="upload" accept="image/*"><br><br>
-              <span class="upload-path"></span>
+              <!-- <div id="upload-area">
+              	<div id="preview">
+              		<img width="50px" height="50px" src="" id="thumb">
+              	</div>
+              	<form action="/playground/ajax_upload" id="newHotnessForm">
+              		<label>Upload a Picture</label>
+              		<input type="file" size="20" id="imageUpload" class=" ">
+              	</form>
+              </div> -->
+              <!-- <input type="file" name="picQ" id="picQ" class="upload" accept="image/*" multiple><br><br> -->
+              <!-- <span class="upload-path"></span> -->
               Message: *<br>
               <textarea name='messageQ' id='messageQ' rows="15" cols="50" required></textarea><br>
               <button type="submit" name="button" value='Send' id='submitQ'>Submit</button>

@@ -2,6 +2,7 @@ $('.aboutBoxes').hide();
 $('#ContactForm').hide();
 $('#ordinancesTable').hide();
 $('#quoteForm').hide();
+var imageUploaded;
 
 $('li').hover(function() {
   $(this).toggleClass('pulse animated');
@@ -54,7 +55,10 @@ $('#home').on('click', function(event) {
 
 $('#submit').on('click', function(event) {
   event.preventDefault();
+  $('#submit').unbind("click");
+  $('#submit').css('opacity', '.3');
   var form = $('#contactus').serializeArray();
+  // console.log(form);
   var object = {
     firstName: form[0].value,
     lastName: form[1].value,
@@ -62,40 +66,46 @@ $('#submit').on('click', function(event) {
     number: form[3].value,
     message: form[4].value
   };
-  console.log(object);
-  $.post('/contact', {info: object}, function(data) {
-  }).done(function(data) {
-    if (data.flag === true) {
-      $('#form').empty();
-      $('#form').append("<h1 class='formData'>"+ data.message +"</h1>");
-      $('#form').append('<img class="dataImg" src="/images/dataImg.jpg">');
-      $('#form').addClass('dataToCenter');
-    }
-    else {
-      alert('working');
-      $('#formTitle').html(data.message);
+  if ((object.firstName.length >= 2) && (object.lastName.length >= 2) && (object.number.length >= 10) && (object.message.length >= 2) && (document.getElementById('email').checkValidity())) {
+    $.post('/contact', {info: object}, function(data) {
+    }).done(function(data) {
+      if (data.flag === true) {
+        $('#form').empty();
+        $('#form').append("<h1 class='formData'>"+ data.message +"</h1>");
+        $('#form').append('<img class="dataImg" src="/images/dataImg.jpg">');
+        $('#form').addClass('dataToCenter');
+      }
+      else {
+        $('#formTitle').html(data.message);
 
-    }
-
-  });
+      }
+    });
+  }
+  else {
+    alert('Please fill out form completely.');
+  }
 });
 
-var imageUploaded;
-var filname;
-
-$('input[type="file"]').change(function(){
-  var f = this.files[0];
-  var name = f.name;
-  imageUploaded = $(this)[0].value;
-  filename = imageUploaded.replace(/^.*\\/, "");
-  console.log(f);
-  console.log(name);
-  console.log(filename);
+$(":file").change(function () {
+    if (this.files && this.files[0]) {
+      var reader = new FileReader();
+      reader.onload = imageIsLoaded;
+      reader.readAsDataURL(this.files[0]);
+    }
 });
+function imageIsLoaded(e) {
+    imageUploaded = e.target.result;
+    // console.log(imageUploaded);
+    $('#thumb').attr('src', e.target.result);
+    // console.log(e);
+}
+
 
 $('#submitQ').on('click', function(event) {
   event.preventDefault();
-  var form = $('#quoteF :input').serializeArray();
+  $('#submitQ').unbind("click");
+  $('#submitQ').css('opacity', '.3');
+  var form = $('#quoteF').serializeArray();
   var object = {
     firstName: form[0].value,
     lastName: form[1].value,
@@ -105,26 +115,30 @@ $('#submitQ').on('click', function(event) {
     cityState: form[5].value,
     zipCode: form[6].value,
     needed: $('#selestQ').val(),
-    pic: filename,
+    pic: imageUploaded,
     message: form[7].value
-
   };
-  console.log(object);
-  $.post('/quote', {info: object}, function(data) {
-  }).done(function(data) {
-    // if (data.flag === true) {
-    //   $('#form').empty();
-    //   $('#form').append("<h1 class='formData'>"+ data.message +"</h1>");
-    //   $('#form').append('<img class="dataImg" src="/images/dataImg.jpg">');
-    //   $('#form').addClass('dataToCenter');
-    // }
-    // else {
-    //   alert('working');
-    //   $('#formTitle').html(data.message);
-    //
-    // }
+  // console.log(object.firstName.length);
+  if ((object.firstName.length >= 2) && (object.lastName.length >= 2) && (object.number.length >= 10) && (object.streetAdress.length >= 2) && (object.cityState.length >= 2) && (object.zipCode.length >= 4) && (object.message.length >= 2) && (document.getElementById('emailQ').checkValidity())) {
+    $.post('/quote', {info: object}, function(data) {
+    }).done(function(data) {
+      if (data.flag === true) {
+        $('#formQ').empty();
+        $('#formQ').append("<h1 class='formData'>"+ data.message +"</h1>");
+        $('#formQ').append('<img class="dataImg" src="/images/dataImg.jpg">');
+        $('#formQ').addClass('dataToCenter');
+        $('.formData').css('margin-top', '6px');
+        $('.formData').css('margin-bottom', '6px');
+      }
+      else {
+        $('#formTitle').html(data.message);
 
-  });
+      }
+    });
+  }
+  else {
+    alert('Please fill out form completely.');
+  }
 });
 
 function sizing() {
@@ -180,7 +194,7 @@ $('main').scroll(function() {
      $('#howIs').removeClass('bounceInRight animated');
      $('.aboutBoxes').hide();
      history.pushState("home","home","home");
-     console.log('to top');
+    //  console.log('to top');
    }
 });
 

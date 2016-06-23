@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -14,8 +14,9 @@ app.use(function(req, res, next) {
 app.use(express.static('./'));
 app.use(bodyParser());
 
+
 app.get('*', function(request, response) {
-  console.log('New request:', request.url);
+  // console.log('New request:', request.url);
   response.sendFile('index.html', { root: '.' });
 });
 
@@ -30,7 +31,7 @@ app.get('/ordinances/', function(req, res) {
 });
 
 app.post('/contact', function (req, res) {
-  console.log(req.body.info);
+  // console.log(req.body.info);
   var form = req.body.info;
   var mailOpts, smtpTrans;
   //Setup Nodemailer transport, I chose gmail. Create an application-specific password to avoid problems.
@@ -44,7 +45,7 @@ app.post('/contact', function (req, res) {
   //Mail options
   mailOpts = {
       from: form.firstName + ' ' +  form.lastName + '; '+ form.email + '', //grab form data from the request body object
-      to: 'berning.corey@gmail.com',
+      to: 'berning.corey@gmail.com', //tannerm1tree@outlook.com
       subject: 'M1 Contact Form',
       html:form.message + '<br><br>' + form.firstName + ' ' +  form.lastName + '<br>' + form.number  + '<br>' + form.email
   };
@@ -61,7 +62,7 @@ app.post('/contact', function (req, res) {
       //Yay!! Email sent
       else {
         var data = {
-          message: 'Your message has been sent.<br> Thank you for contacting M1, we will be in contact soon.',
+          message: 'Your message has been sent.<br> Thank you for contacting M1 Tree & Landscape LLC. We will be in contact shortly.',
           flag: true
         };
         console.log('sent');
@@ -71,7 +72,7 @@ app.post('/contact', function (req, res) {
 });
 
 app.post('/quote', function (req, res) {
-  console.log(req.body);
+  // console.log(req.body);
   var form = req.body.info;
   var mailOpts, smtpTrans;
   //Setup Nodemailer transport, I chose gmail. Create an application-specific password to avoid problems.
@@ -82,13 +83,17 @@ app.post('/quote', function (req, res) {
           pass: "treeandlandscape"
       }
   });
+
+  //  + '<img src="'+ form.pic+'">'
+
   //Mail options
   mailOpts = {
       from: form.firstName + ' ' +  form.lastName + '; '+ form.email + '', //grab form data from the request body object
-      to: 'berning.corey@gmail.com',
-      subject: 'M1 Contact Form',
-      html: form.message + '<br><br>' +form.needed + '<br><br>' + form.firstName + ' ' +  form.lastName + '<br>' + form.number  + '<br>' + form.email + '<br>' + form.streetAdress + '<br>' + form.cityState +' '+ form.zipCode + '<br><br>' + form.pic
+      to: 'berning.corey@gmail.com',//tannerm1tree@outlook.com
+      subject: 'M1 Quote Form',
+      html: form.message + '<br><br>Needed: ' + form.needed + '<br><br>' + form.firstName + ' ' +  form.lastName + '<br>' + form.number  + '<br>' + form.email + '<br>' + form.streetAdress + '<br>' + form.cityState +' '+ form.zipCode + '<br> <img src="'+ form.pic +'">'
   };
+
   smtpTrans.sendMail(mailOpts, function (error, response) {
       //Email not sent
       if (error) {
@@ -102,7 +107,7 @@ app.post('/quote', function (req, res) {
       //Yay!! Email sent
       else {
         var data = {
-          message: 'Your message has been sent.<br> Thank you for contacting M1, we will be in contact soon.',
+          message: 'Thank you For your interest in M1 Tree & Landscape.<br> We have received your Quote and will be in contact shortly.',
           flag: true
         };
         console.log('sent');
