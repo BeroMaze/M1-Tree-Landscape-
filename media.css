@@ -33,6 +33,9 @@
   a{
     font-size: .9em;
   }
+  #messageQ{
+    width: 200px;
+  }
 }
 
 @media (min-width: 640px) and (max-width: 732px) {
@@ -54,6 +57,9 @@
   }
   li{
     font-size: .9em;
+  }
+  #messageQ{
+    width: 200px;
   }
 
 }
@@ -93,7 +99,7 @@
   #orTable{
     padding: 0;
     padding-left: 4%;
-    padding-bottom: 5%;
+    padding-bottom: 15%;
   }
   a{
     font-size: .7em;
@@ -105,7 +111,7 @@
     width: 25em;
   }
   #messageQ{
-    width: 250px;
+    /*width: 250px;*/
   }
   #formQ{
     min-width: 440px;
@@ -113,6 +119,10 @@
   #rightForm{
     margin-right: 0;
     margin-left: 50px
+  }
+  .formData{
+    font-size: 1em;
+    margin: 5%;
   }
 
 }

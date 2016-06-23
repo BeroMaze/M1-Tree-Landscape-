@@ -6,6 +6,7 @@ html body{
   width: 1280px;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 body{
   background-image: url('./images/background.JPG');
@@ -217,6 +218,7 @@ li{
   justify-content: center;
   -webkit-justify-content: center;
   -moz-justify-content: center;
+  text-align: center;
 }
 #ordinancesTable{
   /*background-color: rgba(250, 250, 250, 0.64);*/
