@@ -3,8 +3,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var nodemailer = require('nodemailer');
-var PORT = 3000;
-
+var PORT = process.env.PORT;
+var emailPassword = process.env.PASSWORD;
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -39,13 +39,13 @@ app.post('/contact', function (req, res) {
       service: 'Gmail',
       auth: {
           user: "m1servermail@gmail.com",
-          pass: "treeandlandscape"
+          pass: emailPassword
       }
   });
   //Mail options
   mailOpts = {
       from: form.firstName + ' ' +  form.lastName + '; '+ form.email + '', //grab form data from the request body object
-      to: 'berning.corey@gmail.com', //tannerm1tree@outlook.com
+      to: 'tannerm1tree@outlook.com', //tannerm1tree@outlook.com
       subject: 'M1 Contact Form',
       html:form.message + '<br><br>' + form.firstName + ' ' +  form.lastName + '<br>' + form.number  + '<br>' + form.email
   };
@@ -80,7 +80,7 @@ app.post('/quote', function (req, res) {
       service: 'Gmail',
       auth: {
           user: "m1servermail@gmail.com",
-          pass: "treeandlandscape"
+          pass: emailPassword
       }
   });
 
@@ -89,7 +89,7 @@ app.post('/quote', function (req, res) {
   //Mail options
   mailOpts = {
       from: form.firstName + ' ' +  form.lastName + '; '+ form.email + '', //grab form data from the request body object
-      to: 'berning.corey@gmail.com',//tannerm1tree@outlook.com
+      to: 'tannerm1tree@outlook.com',//tannerm1tree@outlook.com
       subject: 'M1 Quote Form',
       html: form.message + '<br><br>Needed: ' + form.needed + '<br><br>' + form.firstName + ' ' +  form.lastName + '<br>' + form.number  + '<br>' + form.email + '<br>' + form.streetAdress + '<br>' + form.cityState +' '+ form.zipCode + '<br> <img src="'+ form.pic +'">'
   };
